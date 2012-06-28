@@ -23,7 +23,7 @@ function getSample($track_id){
 				$file 		= str_replace('.mp3', '.ogg', basename($file_info['path']));
 				
 				if(!file_exists($dir_cache.$file[0])){
-					mkdir($dir_cache.$file[0]);
+					mkdir($dir_cache.$file[0],0777);
 				}
 
 				if(!file_exists($dir_cache.$file[0].'/'.$file[1])){
@@ -34,7 +34,7 @@ function getSample($track_id){
 
 				if(!file_exists($file)){
 					
-					exec('ffmpeg -i '.$data->preview.' -f ogg -strict experimental -acodec vorbis -ab 192k '.$file.' > /dev/null 2>&1', $output, $return_var);
+					exec('ffmpeg -i '.$data->preview.' -f ogg -strict experimental -acodec vorbis -ab 192k '.$file.' &> /dev/null', $output, $return_var);
 					
 					return $file;
 
