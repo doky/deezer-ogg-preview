@@ -1,5 +1,6 @@
 <?php
 
+/* get Sample from deezer and convert in ogg format */
 function getSample($track_id){
 
 	/* Folder to store ogg file */
@@ -23,7 +24,7 @@ function getSample($track_id){
 				$file 		= str_replace('.mp3', '.ogg', basename($file_info['path']));
 				
 				if(!file_exists($dir_cache.$file[0])){
-					mkdir($dir_cache.$file[0],0777);
+					mkdir($dir_cache.$file[0], 0777);
 				}
 
 				if(!file_exists($dir_cache.$file[0].'/'.$file[1])){
@@ -32,10 +33,14 @@ function getSample($track_id){
 
 				$file = $dir_cache.$file[0].'/'.$file[1].'/'.$file;
 
+				$dir = dirname($file);
+
+				clean_cache($dir);
+
 				if(!file_exists($file)){
 					
 					exec('ffmpeg -i '.$data->preview.' -f ogg -strict experimental -acodec vorbis -ab 192k '.$file.' &> /dev/null', $output, $return_var);
-					
+
 					return $file;
 
 				}else{
@@ -51,6 +56,24 @@ function getSample($track_id){
 	}
 
 }
+
+/* clean cache */
+function clean_cache($dir){
+
+	if ($handle = opendir($dir)) {
+		while (false !== ($entry = readdir($handle))) {
+			if ($entry != "." && $entry != "..") {
+
+				$timefile = filemtime($entry); 
+				$time = time()-86400;
+				echo $dir;
+				if($timefile < $time){
+					unlink($dir.'/'.$entry);
+				}
+			}
+		}
+	}
+}	
 
 
 ?>
