@@ -9,7 +9,9 @@ Browser :
 * Internet Explorer (*)
 * Opera
 
-(*) Works without ogg conversion
+(*) Works without ogg format conversion
+
+## Deezer API
 
 [Read more about Deezer API](http://developers.deezer.com/api)
 
