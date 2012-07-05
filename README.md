@@ -11,7 +11,7 @@ A small script to play audio preview from deezer with html5 audio tag (for Firef
 
 ### ffmpeg install (Debian)
 
-    sudo apt-get install update
+    sudo apt-get update
     sudo apt-get install ffmpeg
     
 ### Conversion Test
