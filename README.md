@@ -1,6 +1,15 @@
 # Deezer ogg preview conversion
 
-A small script to play audio preview from deezer with html5 audio tag (for Firefox, opera or chrome).
+A small script to play audio preview from deezer with html5 audio tag.
+
+Browser :
+* Firefox 
+* Chrome
+* Safari (*)
+* Internet Explorer (*)
+* Opera
+
+(*) Works without ogg conversion
 
 [Read more about Deezer API](http://developers.deezer.com/api)
 
