@@ -64,9 +64,9 @@ function clean_cache($dir){
 		while (false !== ($entry = readdir($handle))) {
 			if ($entry != "." && $entry != "..") {
 
-				$timefile = filemtime($entry); 
+				$timefile = filemtime($dir.'/'.$entry); 
 				$time = time()-86400;
-				echo $dir;
+			
 				if($timefile < $time){
 					unlink($dir.'/'.$entry);
 				}
