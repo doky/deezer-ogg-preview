@@ -7,7 +7,10 @@ function getSample($track_id){
 	$dir_cache = 'stream/';
 
 	if(!file_exists($dir_cache)){
-		mkdir($dir_cache);
+		// test chmod before this line
+		if(!@mkdir($dir_cache)){
+	      		exit("Failed to create directory: $dir_cache.");
+		}
 	}
 
 	if(isset($track_id)){
