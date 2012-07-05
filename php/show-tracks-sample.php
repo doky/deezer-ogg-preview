@@ -23,6 +23,7 @@ for($i=0; $i<5; $i++){
           "album_name"    => $track->album->title,
           "cover"         => $track->album->cover,
           "duration"      => $track->duration,
+          "mp3url"	  => $track->preview,
           "oggurl"        => $file_url
         );
 }
@@ -46,6 +47,7 @@ for($i=0; $i<5; $i++){
         <br />
         <audio controls="controls">
           <source src="<?php echo $ogg['oggurl']?>" type="audio/ogg" />
+          <source src="<?php echo $ogg['mp3url']?>" type="audio/mpeg" />
           Your browser does not support the audio tag.
         </audio>
       </div>
