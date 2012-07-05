@@ -12,9 +12,8 @@ function getSample($track_id){
 
 	if(isset($track_id)){
 
-		$track_id = intval($track_id);
-		$url      = "http://api.deezer.com/2.0/track/".$track_id;
-		$data     = json_decode(file_get_contents($url));
+		$track_id = (int) $track_id;
+		$data = getTrackData($track_id);
 
 		if($data != false && !isset($data->error)){
 
@@ -74,6 +73,32 @@ function clean_cache($dir){
 		}
 	}
 }	
+
+function getTrackData($track_id){
+
+	if(isset($track_id)){
+
+		$url  = "http://api.deezer.com/2.0/track/".$track_id;
+
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+
+		$data = curl_exec($ch);
+		curl_close($ch);
+
+		if($data === false){
+			return false;
+		}else{
+			return $data;
+		}
+
+	}else{
+		return false;
+	}
+}
 
 
 ?>
