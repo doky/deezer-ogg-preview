@@ -14,7 +14,8 @@ function getSample($track_id){
 
 		$track_id = (int) $track_id;
 		$data = getTrackData($track_id);
-
+		$data = json_decode($data);
+		
 		if($data != false && !isset($data->error)){
 
 			if(isset($data->preview)){
