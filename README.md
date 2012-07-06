@@ -39,3 +39,20 @@ Try to execute this command, if you found a file named test.ogg, then you're bra
 The ogg file will be stored in a stream folder)
 
 * getSample or dzpreview::getPreview($track_id) return the path of the ogg file.
+
+### Example code
+
+
+     <?php
+     
+     require 'class.dzpreview.php';
+     
+     $track_id = '12214510';
+     $baseurl  = 'http://myserver.com/';
+     
+     $path = dzpreview::getPreview($track_id);
+     
+     echo $baseurl.$path;
+     //return : http://myserver.com/stream/a/1/a1e6de2ec7f4e0dd35f2523334915ba5-1.ogg
+     
+     ?>
