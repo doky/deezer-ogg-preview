@@ -1,5 +1,12 @@
 <?php
 
+/*
+Deezer Ogg preview conversion - Sample function
+Created by Aurélien Hérault on 2012-07-06.
+Contributor : Baptiste Bouillot, François Lasserre, JP Carrascal
+https://github.com/doky/deezer-ogg-preview
+*/
+
 /* get Sample from deezer and convert in ogg format */
 function getSample($track_id){
 
@@ -9,7 +16,7 @@ function getSample($track_id){
 	if(!file_exists($dir_cache)){
 		// test chmod before this line
 		if(!@mkdir($dir_cache)){
-	      		exit("Failed to create directory: $dir_cache.");
+	      		throw new Exception("Failed to create directory: $dir_cache.", 1);
 		}
 	}
 
