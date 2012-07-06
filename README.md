@@ -35,7 +35,7 @@ Try to execute this command, if you found a file named test.ogg, then you're bra
 
 * Get a deezer track id from [Deezer API](http://developers.deezer.com/api) - you can also use this wrapper for a quick start [Deezer-API-PHP-Wrapper](https://github.com/croustibat/Deezer-API-PHP-Wrapper)
 
-* Call the function getSample($track_id) (The function calls Deezer API to get the audio preview url and directly convert it into ogg format. 
+* Call the function getSample($track_id) or use dzpreview::getPreview($track_id) (The function calls Deezer API to get the audio preview url and directly convert it into ogg format. 
 The ogg file will be stored in a stream folder)
 
-* getSample return the path of the ogg file.
+* getSample or dzpreview::getPreview($track_id) return the path of the ogg file.
